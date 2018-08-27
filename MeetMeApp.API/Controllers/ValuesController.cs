@@ -10,7 +10,8 @@ namespace MeetMeApp.API.Controllers
 {
     // http://localhost:5000/api/values
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [ApiController]
+    public class ValuesController : ControllerBase
     {
         private readonly DataContext _context;
         public ValuesController(DataContext context)

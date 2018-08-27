@@ -13,7 +13,10 @@ using Microsoft.Extensions.Configuration;
 namespace MeetMeApp.API.Controllers
 {
     [Route("api/[controller]")]
-    public class AuthController : Controller    {
+    [ApiController]
+    
+    public class AuthController : ControllerBase
+    {
         private readonly IAuthRepository _repo;
         public AuthController(IAuthRepository repo)
         {

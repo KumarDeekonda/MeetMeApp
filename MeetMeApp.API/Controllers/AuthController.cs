@@ -14,7 +14,7 @@ namespace MeetMeApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
@@ -26,8 +26,15 @@ namespace MeetMeApp.API.Controllers
 
         [HttpPost("register")]
 
-        public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
+        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
+            // if (!ModelState.IsValid) 
+            //     return BadRequest(ModelState);
+
+            // if you use apicontroller you do not need to mention modelvalid code 
+
+            // if you comment apicontroller need to use [frombody] for userforregisterdto
+
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
             if (await _repo.UserExists(userForRegisterDto.Username))
